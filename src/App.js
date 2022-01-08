@@ -3,7 +3,7 @@ import React, {useState,Suspense} from 'react';
 import WeatherForecast from './weatherForecast';
 
 function App() {
-  const api='GUPIGVK9BS4DHOOx2iKFLZwbHwq37nWa';
+  const api='BRAGT8mcxLctGHLisXKd2BHMAY2NwAen';
   const [city,setCity] = useState('');
   const error={};
 
@@ -33,7 +33,7 @@ function App() {
   
 
     const getlocation=(async (city)=>{
-      const citydetail= await fetch(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${api}&q=`+city)
+      const citydetail= await fetch(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${api}&q=`+city)
       .then(response=>response.json());
       console.log('citydetail tye:'+typeof citydetail)
       const citykey1=citydetail.map(citydetail=>citydetail.Key);
@@ -63,7 +63,7 @@ function App() {
 
     const getforecast1=(async (citykey)=>{
       console.log('hello');
-      const forecastdetail= await fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${citykey}?apikey=${api}`)
+      const forecastdetail= await fetch(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${citykey}?apikey=${api}`)
       .then(response=>response.json());
       console.log('result'+forecastdetail)
       setForecast1(forecastdetail.DailyForecasts);
