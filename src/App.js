@@ -39,14 +39,7 @@ if( city === null || city.match(/^ *$/) !== null) {
     const getlocation=(async (city)=>{
       try{
         const citydetail= await fetch(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${api}&q=`+city)
-        .then(response=>{
-          if (response.status !== 200) {
-            console.log('Error : '+response.status)
-            setErrors("Something went wrong, Please try again later...");
-            return;
-           }
-           response.json()
-          })
+        .then(response=>response.json())
            const citykey1=citydetail.map(citydetail=>citydetail.Key);
            if (citydetail.length==1){
            setLocation(citydetail[0]);
@@ -70,12 +63,7 @@ if( city === null || city.match(/^ *$/) !== null) {
       try{
         const forecastdetail= await fetch(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${citykey}?apikey=${api}`)
         .then(response=>{
-          if (response.status !== 200) {
-            setErrors("Something went wrong, Please try again later...");
-            return;
-          }
-          response.json()
-        })
+        response.json())
         .catch(err=>{setErrors(err)});
           setForecast1(forecastdetail.DailyForecasts);
           setShowmodel(true);
