@@ -9,6 +9,7 @@ body {
   background-image: url("./images/weather.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
+  object-fit: cover;
 }
 
 code {

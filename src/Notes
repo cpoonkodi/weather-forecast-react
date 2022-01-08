@@ -8,14 +8,6 @@
   background-size: cover;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.error {
-  color: red;
-}
 .App-header {
   min-height: 100vh;
   margin-top: 20px;
@@ -31,10 +23,10 @@
 }
 
 .inputdata {
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   width: 40rem;
-  height: 5rem;
-  background-color: transparent;
+  height: 10rem;
+  background-color: green;
   border: yellow;
   justify-content: center;
   display: flex;
@@ -52,6 +44,14 @@ input {
   border-radius: 0.2rem;
   transition: background 200ms ease-in, color 200ms ease-in;
 }
+.text-danger {
+  display: flex;
+  justify-content: ;
+  width: 15rem;
+  height: 2rem;
+  background-color: blue;
+  color: red;
+}
 
 .input-btn {
   padding: 1rem;
@@ -64,19 +64,6 @@ input {
   color: #5d0000;
   border-radius: 0.2rem;
   transition: background 200ms ease-in, color 200ms ease-in;
-}
-
-.input-btn:hover {
-  background: #5d0000;
-  color: white;
-  transform: scale(1.02);
-}
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 h1 {
@@ -92,7 +79,6 @@ body {
   height: 25rem;
   display: flex;
   margin-top: 3rem;
-  flex-direction: column;
 }
 
 .card {

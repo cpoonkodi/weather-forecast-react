@@ -4,6 +4,7 @@ function WeatherForecast(props){
   console.log("test p" + props.cardItems.Type)
     return(
       <div className='wrapper'>
+        {props.cardItems[1].Date};
       <div className='card'>
           <div className='card-body'>
            <h3 className='card-title'> {props.cardItems[0].EnglishName},{props.cardItems[0].Country.EnglishName}</h3>   
