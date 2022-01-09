@@ -3,7 +3,7 @@ import React, {useState,Suspense} from 'react';
 import WeatherForecast from './weatherForecast';
 
 function App() {
-  const api='BRAGT8mcxLctGHLisXKd2BHMAY2NwAen';
+  const api='cwAxV8f0RQwKHtl4zGyLgHKPQkGcGGPh';
   const [city,setCity] = useState('');
 
   var [citykey,setCitykey]=useState([]);
@@ -56,14 +56,14 @@ if( city === null || city.match(/^ *$/) !== null) {
       catch (err) {
         alert(err);
       }
+      
     })
 
 
     const getforecast1=(async (citykey)=>{
       try{
         const forecastdetail= await fetch(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${citykey}?apikey=${api}`)
-        .then(response=>{
-        response.json())
+        .then(response=>response.json())
         .catch(err=>{setErrors(err)});
           setForecast1(forecastdetail.DailyForecasts);
           setShowmodel(true);
