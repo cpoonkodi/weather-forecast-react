@@ -5,22 +5,17 @@ import WeatherForecast from './weatherForecast';
 function App() {
   const api='cwAxV8f0RQwKHtl4zGyLgHKPQkGcGGPh';
   const [city,setCity] = useState('');
-
   var [citykey,setCitykey]=useState([]);
   const [location,setLocation]= useState({});
   const [forecast1,setForecast1]=useState([]);
-
   const locationArray = [location]; 
-
   const cardItems = [...locationArray, ...forecast1];
-  console.log('cardItems'+cardItems);
-
   const [showmodel,setShowmodel]=useState(false);
-
   const [errors, setErrors] = useState([]);
   
   const onchanged=((event)=>{
     setCity(event.target.value);
+    setErrors('');
     });
 
   
@@ -41,6 +36,10 @@ if( city === null || city.match(/^ *$/) !== null) {
         const citydetail= await fetch(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${api}&q=`+city)
         .then(response=>response.json())
            const citykey1=citydetail.map(citydetail=>citydetail.Key);
+
+           if (citydetail.length==0){
+            setErrors('Please Enter Correct City name');
+          }
            if (citydetail.length==1){
            setLocation(citydetail[0]);
            setCitykey(citykey1);
@@ -67,11 +66,16 @@ if( city === null || city.match(/^ *$/) !== null) {
         .catch(err=>{setErrors(err)});
           setForecast1(forecastdetail.DailyForecasts);
           setShowmodel(true);
+          initialStage();
       }
       catch (err) {
         alert(err);
       }
     })
+
+    const initialStage=()=>{
+      setCity('');
+    }
 
     
   return (
